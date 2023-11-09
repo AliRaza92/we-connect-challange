@@ -20,6 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Route to import file 
-Route::post('/import/list',[LinkedinAutomationController::class,'readProfileLinksFromFile'])->name('importFile');
+Route::post('/import/list',[LinkedinAutomationController::class,'readProfileLinksFromFile'])->name('import-file');
 //Route to login the Linkedin
 Route::post('/login-to-linkedin',[LinkedinAutomationController::class,'loginToLinkedIn'])->name('login');
+//Route to visit linkedin profile page
+Route::post('/visit-profile-page',[LinkedinAutomationController::class,'visitProfilePage'])->name('profile-detail');
+//Route to visit linkedin profile page
+Route::post('/send=invite',[LinkedinAutomationController::class,'sendConnection'])->name('send-invite');

@@ -43,8 +43,10 @@ class LinkedinAutomationController extends Controller
         
             $path = $request->file('profilesList')->getRealPath();
             $collection = Excel::toArray(new ProfileImport, $request->file('profilesList'));
+
+             //step to insert into database
+             
             return response()->json(['File uploaded successfuly' => $validator->errors()], 200);
-            //step to insert into database
 
         }  catch (GuzzleException $exception) {
             return response()->json([
